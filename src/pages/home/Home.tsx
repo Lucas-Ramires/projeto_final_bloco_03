@@ -8,12 +8,8 @@ function Home() {
                             Drogaria cheap pills
                         </h2>
                         <p className='text-xl'>
-                            Mês aniversário, descontos até dia 30/06
+                            Melhor preço e melhor atendimento!
                         </p>
-                        <div className="flex justify-around gap-4">
-                            <div className="flex justify-around gap-4">
-                            </div>
-                        </div>
                     </div>
                     <div className=" flex justify-center">
                         <img
