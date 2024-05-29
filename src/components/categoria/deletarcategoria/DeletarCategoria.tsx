@@ -55,13 +55,14 @@ export default function DeleteCategoria() {
         <p className='p-8 text-3xl bg-slate-200 h-full'>{categoria.nome}</p>
         <div className="flex">
             <button className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={retornar} >Não</button>
-            <button className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center' onClick={deletarCategoria} >
+            <button className='w-full text-slate-100 bg-[#06D6A0] 
+                        hover:bg-[#007F90] flex items-center justify-center' onClick={deletarCategoria} >
             {
-                isLoading ? (
+                isLoading ? 
                     <RotatingLines strokeColor='white' strokeWidth='5' animationDuration='0.75' width='24' visible={true}/>
-                ) : (
+                 : 
                     <span>Sim</span>
-                )
+                
             }
             </button>
         </div>
