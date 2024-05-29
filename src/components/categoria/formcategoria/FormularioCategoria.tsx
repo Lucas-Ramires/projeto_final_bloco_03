@@ -11,7 +11,7 @@ export default function FormularioCategoria() {
     const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
     const [isLoading, setLoading] = useState<boolean>(false);
 
-    const {id} = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     async function buscarPorId(id: string) {
         try {
@@ -22,7 +22,7 @@ export default function FormularioCategoria() {
     }
 
     useEffect(() => {
-        if(id !== undefined) {
+        if (id !== undefined) {
             buscarPorId(id)
         }
     }, [id])
@@ -30,12 +30,13 @@ export default function FormularioCategoria() {
 
     function stateActually(event: ChangeEvent<HTMLInputElement>) {
         setCategoria(
-            {...categoria,
-            [event.target.name]: event.target.value
-        });
+            {
+                ...categoria,
+                [event.target.name]: event.target.value
+            });
     }
 
-    function retornar(){
+    function retornar() {
         navigate('/categorias');
     }
 
@@ -50,10 +51,10 @@ export default function FormularioCategoria() {
             } catch (error: any) {
                 alert("Error: Categoria não pode ser atualizada")
             }
-        }else{
+        } else {
             try {
                 await cadastrar(`/categorias`, categoria, setCategoria);
-                alert("Catgeoria cadastrada com sucesso!");
+                alert("Categeoria cadastrada com sucesso!");
             } catch (error: any) {
                 alert("Error: Categoria não pode ser cadastrada");
             }
@@ -66,7 +67,7 @@ export default function FormularioCategoria() {
     return (
         <div className="container flex flex-col items-center justify-center mx-auto">
             <h1 className="text-4xl text-center my-8">
-                {id === undefined ? 'Cadastrar Categoria' :  'Editar Categoria'}
+                {id === undefined ? 'Cadastrar Categoria' : 'Editar Categoria'}
             </h1>
 
             <form className="w-1/2 flex flex-col gap-4" onSubmit={generationNewCategory}>
@@ -81,13 +82,16 @@ export default function FormularioCategoria() {
                         onChange={(e: ChangeEvent<HTMLInputElement>) => stateActually(e)}
                     />
                 </div>
-                <button className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block justify-center" type="submit">
-                    {
-                        isLoading ? (
-                            <RotatingLines strokeColor='white' strokeWidth='5' animationDuration='0.75' width='24' visible={true}/>
-                        ) : (
-                            <span>{id === undefined ? 'Cadastrar' :  'Atualizar'}</span>
-                        )
+                <button className="rounded text-slate-100 bg-[#06D6A0] 
+                                hover:bg-[#007F90] w-1/2 py-2 mx-auto flex justify-center" type="submit">
+                    {isLoading ? <RotatingLines
+                        strokeColor='white'
+                        strokeWidth='5'
+                        animationDuration='0.75'
+                        width='24'
+                        visible={true} />
+                        :
+                        <span>{id === undefined ? 'Cadastrar' : 'Atualizar'}</span>
                     }
                 </button>
             </form>
