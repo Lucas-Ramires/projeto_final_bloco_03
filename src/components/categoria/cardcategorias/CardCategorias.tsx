@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import Categoria from '../../../models/Categoria'
 
 
-interface CardTemasProps{
+interface CardCategoriasProps{
     categoria: Categoria
 }
 
-function CardCategorias({ categoria }: CardTemasProps) {
+function CardCategorias({ categoria }: CardCategoriasProps) {
     return (
         <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
             <header className='py-2 px-6 bg-[#00C9C8] text-white font-bold text-2xl'>
